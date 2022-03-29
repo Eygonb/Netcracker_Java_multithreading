@@ -29,10 +29,9 @@ public class BankTeller implements Runnable {
 
     public void addClient(Client client) {
         synchronized (clientList) {
+            clientList.add(client);
             clientList.notify();
         }
-
-        clientList.add(client);
     }
 
     public void setActive(boolean active) {
